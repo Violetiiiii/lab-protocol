@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklab_protocol=self.webpackChunklab_protocol||[]).push([[903],{1912:o=>{o.exports=JSON.parse('{"blogBasePath":"/lab-protocol/blog","blogTitle":"Blog","authorsListPath":"/lab-protocol/blog/authors"}')}}]);
