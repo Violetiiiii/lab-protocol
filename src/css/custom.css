@@ -1,0 +1,201 @@
+/* 主题主色（深/浅色可按需改，不是必须） */
+:root {
+  /* 你可以先保留默认主色，下面这行可删可留 */
+  /* --ifm-color-primary: #0ea5e9;  */
+}
+
+/* 深色模式主色示例（可选） */
+[data-theme='dark'] {
+  /* --ifm-color-primary: #25c2a0; */
+}
+
+/* ========= 统一的排版变量（全局可调） ========= */
+:root {
+  --doc-body-size: 16px;        /* 正文字号 */
+  --doc-body-color: #222;       /* 正文字色 */
+  --doc-h1: 2.2rem;             /* H1 大小 */
+  --doc-h2: 1.6rem;             /* H2 大小 */
+  --doc-h3: 1.25rem;            /* H3 大小 */
+  --doc-heading-color: #4f28c4; /* 各级标题颜色 */
+}
+
+/* —— 文档区域的“基准字号/颜色” —— */
+.theme-doc-markdown {
+  --doc-body-size: 16px;         /* 你希望的正文字号 */
+  --doc-body-color: #222;
+  font-size: var(--doc-body-size);
+  color: var(--doc-body-color);
+  line-height: 1.7;
+}
+
+/* 让常见正文元素都“继承”基准（保持一致） */
+.theme-doc-markdown p,
+.theme-doc-markdown ul,
+.theme-doc-markdown ol,
+.theme-doc-markdown li,
+.theme-doc-markdown table,
+.theme-doc-markdown code {
+  font-size: 1em;          /* 继承容器的 18px，而不是各自再设一遍 */
+  color: inherit;
+}
+
+/* 列表的小排版（可选，用来收紧间距） */
+.theme-doc-markdown ul, .theme-doc-markdown ol { margin: .25rem 0 1rem; }
+.theme-doc-markdown li p { margin: .25rem 0; }
+
+/* 标题仍然单独设定大小/颜色 */
+.theme-doc-markdown h1, .markdown h1 { font-size: var(--doc-h1);  color: var(--doc-heading-color); }
+.theme-doc-markdown h2, .markdown h2 { font-size: var(--doc-h2);  color: var(--doc-heading-color); }
+.theme-doc-markdown h3, .markdown h3 { font-size: var(--doc-h3);  color: var(--doc-heading-color); }
+
+
+
+/* ========= 引用块：收紧留白 & 自定义样式 ========= */
+.markdown blockquote {
+  margin: 0.6rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--ifm-color-primary);
+  background: #f5f6f7;
+}
+.markdown blockquote p { margin: 0.4rem 0; }
+.markdown blockquote > :last-child { margin-bottom: 0; }
+
+/* > 引用块，也一起调小字体 */
+.markdown blockquote,
+.markdown blockquote p {
+  font-size: 0.95em;   /* 需要更小就改 0.9em 等 */
+}
+
+/* ========= note块：收紧留白 & 自定义样式 ========= */
+.note {
+  margin: 0.6rem 0;
+  padding: 0.75rem 1rem;
+  background: #f5f6f7;
+  border-left: 2px solid #aaacee;
+}
+.note > :last-child { margin-bottom: 0; }
+
+/* 让 note 内文字变小 */
+.markdown .note,
+.markdown .note p { 
+  font-size: 0.92em !important;
+}
+
+
+/* 行内实用类（可选） */
+.small { font-size: .9em; }
+.large { font-size: 1.15em; font-weight: 600; }
+.muted { color: #6b7280; }
+.warn  { color: #b45309; }
+.danger{ color: #b91c1c; font-weight: 700; }
+
+
+/* 代码块标题（```xxx title="..."）的通用样式 */
+.markdown .theme-code-block .theme-code-block-title {
+  font-size: 0.9rem !important;     /* 改这里：标题字号 */
+  font-weight: 600;
+  color: #334155;
+  background: #f1f5f9;
+  padding: .5rem .75rem;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  border: 1px solid #e5e7eb;
+  border-bottom: 0;
+}
+
+/* 代码块标题-深色模式可单独调 */
+[data-theme='dark'] .theme-code-block .theme-code-block-title {
+  color: #e2e8f0;
+  background: #0f172a;
+  border-color: #1f2937;
+}
+
+
+
+/* 代码块主体（多行） */
+.markdown .theme-code-block pre,
+.markdown .theme-code-block pre code {
+  font-size: 0.95rem !important;    /* 改这里：代码内容字号 */
+  line-height: 1.6;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-top: 0;                    /* 与标题连起来 */
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+
+/* 代码块主体-深色模式 */
+[data-theme='dark'] .theme-code-block pre {
+  background: #0b1220;
+  border-color: #1f2937;
+}
+[data-theme='dark'] .markdown :not(pre) > code {
+  background: #182036;
+  border-color: #26324a;
+}
+
+
+/* ========== Markdown 三线表（强覆盖版） ========== */
+
+/* 彻底关掉主题在表格上的所有边框/背景/阴影/斑马纹 */
+.theme-doc-markdown table,
+.theme-doc-markdown thead,
+.theme-doc-markdown tbody,
+.theme-doc-markdown tr,
+.theme-doc-markdown th,
+.theme-doc-markdown td {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 有的主题会给偶数行加斑马纹，这里再强制清理一次 */
+.theme-doc-markdown table tr:nth-child(2n),
+.theme-doc-markdown table tbody tr:nth-child(2n) {
+  background: transparent !important;
+}
+
+/* 基础：去间隙、占满宽度 */
+.theme-doc-markdown table {
+  width: 100%;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+/* 顶部粗线（表最上沿） */
+.theme-doc-markdown table thead tr:first-child {
+  border-top: 2px solid #111 !important;
+}
+
+/* 表头下粗线（thead 与 tbody 之间） */
+.theme-doc-markdown table thead tr:last-child {
+  border-bottom: 2px solid #111 !important;
+}
+
+/* 中间所有行不画线 */
+.theme-doc-markdown table tbody tr {
+  border-bottom: none !important;
+}
+
+/* 表底粗线（最后一行下沿） */
+.theme-doc-markdown table tbody tr:last-child {
+  border-bottom: 2px solid #111 !important;
+}
+
+/* 内边距与加粗（按需调） */
+.theme-doc-markdown table th,
+.theme-doc-markdown table td {
+  padding: 10px 12px !important;
+}
+.theme-doc-markdown table thead th {
+  font-weight: 700 !important;
+}
+
+/* 深色模式的线条颜色（可按喜好调浅些） */
+[data-theme='dark'] .theme-doc-markdown table thead tr:first-child,
+[data-theme='dark'] .theme-doc-markdown table thead tr:last-child,
+[data-theme='dark'] .theme-doc-markdown table tbody tr:last-child {
+  border-color: #e5e7eb !important;
+}
+
