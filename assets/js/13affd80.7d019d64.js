@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklab_protocol=self.webpackChunklab_protocol||[]).push([[548],{1611:o=>{o.exports=JSON.parse('{"metadata":{"permalink":"/lab-protocol/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
